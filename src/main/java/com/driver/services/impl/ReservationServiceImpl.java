@@ -65,6 +65,8 @@ public class ReservationServiceImpl implements ReservationService {
             throw new NullPointerException("Cannot make reservation");
         }
 
+        spot.setOccupied(true);
+
         Reservation reservation = new Reservation(timeInHours, user, spot);
 
         List<Reservation> reservationList = spot.getReservationList();
@@ -93,13 +95,15 @@ public class ReservationServiceImpl implements ReservationService {
         Spot     newSpot    = new Spot();
 
         for (Spot spot : spotList){
-            int hrs = spot.getPricePerHour();
-            int noOfhrs = timeInHours;
+            if (!spot.isOccupied()){
+                int hrs = spot.getPricePerHour();
+                int noOfhrs = timeInHours;
 
-            if (hrs*noOfhrs < maxPrice){
-                maxPrice = hrs * noOfhrs;
-                newSpot = spot;
-                spotFound = true;
+                if (hrs*noOfhrs < maxPrice){
+                    maxPrice = hrs * noOfhrs;
+                    newSpot = spot;
+                    spotFound = true;
+                }
             }
         }
 
