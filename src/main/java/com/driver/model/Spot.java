@@ -84,14 +84,13 @@ public class Spot {
     }
 
     public static SpotType getSpotType(int numberOfWheels) {
+       if (numberOfWheels <= 2){
+           return SpotType.TWO_WHEELER;
+       }
+       if (numberOfWheels >= 4){
+           return SpotType.FOUR_WHEELER;
+       }
 
-        if (numberOfWheels == 2){
-            return SpotType.TWO_WHEELER;
-        }
-        else if (numberOfWheels == 4){
-            return SpotType.FOUR_WHEELER;
-        }
-
-        return SpotType.OTHERS;
+       return SpotType.OTHERS;
     }
 }

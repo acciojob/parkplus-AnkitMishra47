@@ -33,6 +33,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
         spotList.add(spot);
         parkingLot.setSpotList(spotList);
+
         spotRepository1.save(spot);
 
         return spot;
