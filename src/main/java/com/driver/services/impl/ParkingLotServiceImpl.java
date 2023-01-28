@@ -27,11 +27,13 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Override
     public Spot addSpot(int parkingLotId, Integer numberOfWheels, Integer pricePerHour) {
-        ParkingLot parkingLot =  getParkingLot(parkingLotId);
-        List<Spot> spotList   = parkingLot.getSpotList();
-        Spot spot = new Spot(pricePerHour , numberOfWheels ,parkingLot);
+        ParkingLot  parkingLot  = getParkingLot(parkingLotId);
+        List<Spot>  spotList    = parkingLot.getSpotList();
+        Spot        spot        = new Spot(pricePerHour , numberOfWheels ,parkingLot);
+
         spotList.add(spot);
         spotRepository1.save(spot);
+
         return spot;
     }
 

@@ -1,10 +1,15 @@
 package com.driver.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Spot {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     SpotType spotType;
