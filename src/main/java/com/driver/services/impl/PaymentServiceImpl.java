@@ -40,10 +40,10 @@ public class PaymentServiceImpl implements PaymentService {
     private PaymentMode getPaymentMode(String mode) {
         mode = mode.toUpperCase();
 
-        if (mode == "CASH"){
+        if (mode.equals("CASH")){
             return PaymentMode.CASH;
         }
-        if (mode == "CARD"){
+        if (mode.equals("CARD")){
             return PaymentMode.CARD;
         }
         return PaymentMode.UPI;
