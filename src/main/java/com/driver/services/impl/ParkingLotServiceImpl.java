@@ -32,6 +32,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         Spot        spot        = new Spot(pricePerHour , numberOfWheels ,parkingLot);
 
         spotList.add(spot);
+        parkingLot.setSpotList(spotList);
         spotRepository1.save(spot);
 
         return spot;
@@ -39,10 +40,15 @@ public class ParkingLotServiceImpl implements ParkingLotService {
 
     @Override
     public void deleteSpot(int spotId) {
-        Spot spot = getSpot(spotId);
-        spot.getParkingLot().getSpotList().remove(spot);
+//        Spot spot = getSpot(spotId);
+//        ParkingLot parkingLot = spot.getParkingLot();
+//
+//        List<Spot> spotList = parkingLot.getSpotList();
+//        spotList.remove(spot);
+//
+//        parkingLot.setSpotList(spotList);
 
-        spotRepository1.delete(spot);
+        spotRepository1.deleteById(spotId);
     }
 
     @Override
