@@ -50,10 +50,11 @@ public class ReservationServiceImpl implements ReservationService {
             spot = findSpot(spotList , timeInHours);
         }
 
-        if (spot == null){
+        User user = getUser(userId);
+
+        if (spot == null || user == null){
             throw new Exception("Cannot make reservation");
         }
-        User user = getUser(userId);
 
         Reservation reservation = new Reservation(timeInHours, user, spot);
 

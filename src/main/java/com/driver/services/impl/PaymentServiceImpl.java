@@ -33,8 +33,6 @@ public class PaymentServiceImpl implements PaymentService {
         reservation.setPayment(payment);
 
         reservationRepository2.save(reservation);
-        paymentRepository2.save(payment);
-
         return payment;
     }
 
