@@ -32,6 +32,11 @@ public class ReservationServiceImpl implements ReservationService {
         }
 
         ParkingLot  parkingLot  = getParkingLot(parkingLotId);
+
+        if (parkingLot == null){
+            return null;
+        }
+
         List<Spot>  spotList    = parkingLot.getSpotList();
 
         SpotType spotType = Spot.getSpotType(numberOfWheels);
@@ -55,8 +60,6 @@ public class ReservationServiceImpl implements ReservationService {
             spotList = spotList.stream().filter(val -> val.getSpotType() == SpotType.OTHERS).collect(Collectors.toList());
             spot = findSpot(spotList , timeInHours);
         }
-
-
 
         if (spot == null ){
             throw new NullPointerException("Cannot make reservation");
@@ -85,9 +88,9 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     public Spot findSpot(List<Spot> spotList , Integer timeInHours){
-        boolean     spotFound   = false;
-        Integer maxPrice = Integer.MAX_VALUE;
-        Spot newSpot = new Spot();
+        boolean  spotFound  = false;
+        Integer  maxPrice   = Integer.MAX_VALUE;
+        Spot     newSpot    = new Spot();
 
         for (Spot spot : spotList){
             int hrs = spot.getPricePerHour();
