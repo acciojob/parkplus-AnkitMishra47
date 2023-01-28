@@ -75,7 +75,6 @@ public class Spot {
     public Spot(int pricePerHour, int numberOfWheels, ParkingLot parkingLot) {
         this.spotType = getSpotType(numberOfWheels);
         this.pricePerHour = pricePerHour;
-        this.occupied = true;
         this.parkingLot = parkingLot;
     }
 
