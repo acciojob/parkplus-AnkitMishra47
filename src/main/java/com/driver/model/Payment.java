@@ -6,6 +6,9 @@ import javax.persistence.Id;
 
 public class Payment {
 
+    public Payment() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;

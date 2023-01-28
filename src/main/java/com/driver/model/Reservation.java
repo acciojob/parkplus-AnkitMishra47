@@ -70,6 +70,9 @@ public class Reservation {
         this.spot = spot;
     }
 
+    public Reservation() {
+    }
+
     public int getTotalAmount(){
         return getSpot().getPricePerHour() * getNumberOfHours();
     }

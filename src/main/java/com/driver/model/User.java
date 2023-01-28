@@ -16,6 +16,9 @@ public class User {
 
     String password;
 
+    public User() {
+    }
+
     List<Reservation> reservationList = new ArrayList<>();
 
     public int getId() {

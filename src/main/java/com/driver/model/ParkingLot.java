@@ -12,6 +12,10 @@ public class ParkingLot {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String name;
+
+    public ParkingLot() {
+    }
+
     String address;
     List<Spot> spotList = new ArrayList<>();
 
