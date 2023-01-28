@@ -72,7 +72,7 @@ public class ReservationServiceImpl implements ReservationService {
             return reservation;
         }
         catch (NoSuchElementException exception){
-            throw new Exception("null");
+            return null;
         }
     }
     public ParkingLot getParkingLot(int parkingId) throws NoSuchElementException{
