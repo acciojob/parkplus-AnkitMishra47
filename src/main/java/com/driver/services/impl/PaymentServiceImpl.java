@@ -34,6 +34,8 @@ public class PaymentServiceImpl implements PaymentService {
 
         reservationRepository2.save(reservation);
         paymentRepository2.save(payment);
+
+        return payment;
     }
 
     private PaymentMode getPaymentMode(String mode) {
