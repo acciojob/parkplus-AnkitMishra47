@@ -9,8 +9,6 @@ public class Payment {
     public Payment() {
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     boolean paymentCompleted;

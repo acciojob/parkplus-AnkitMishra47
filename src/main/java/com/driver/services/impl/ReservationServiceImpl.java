@@ -28,13 +28,13 @@ public class ReservationServiceImpl implements ReservationService {
         User user = getUser(userId);
 
         if (user == null){
-            return null;
+            throw new NullPointerException("Cannot make reservation");
         }
 
         ParkingLot  parkingLot  = getParkingLot(parkingLotId);
 
         if (parkingLot == null){
-            return null;
+            throw new NullPointerException("Cannot make reservation");
         }
 
         List<Spot>  spotList    = parkingLot.getSpotList();
