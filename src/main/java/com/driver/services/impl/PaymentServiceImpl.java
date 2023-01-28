@@ -18,7 +18,6 @@ public class PaymentServiceImpl implements PaymentService {
     public Payment pay(Integer reservationId, int amountSent, String mode) throws Exception {
         Reservation reservation = getReservation(reservationId);
 
-
         int totalAmount = reservation.getTotalAmount();
 
         if (totalAmount > amountSent){
@@ -33,6 +32,8 @@ public class PaymentServiceImpl implements PaymentService {
         reservation.setPayment(payment);
 
         reservationRepository2.save(reservation);
+        paymentRepository2.save(payment);
+
         return payment;
     }
 
@@ -51,9 +52,9 @@ public class PaymentServiceImpl implements PaymentService {
     private boolean modeExists(String mode) {
         mode = mode.toUpperCase();
 
-        return mode.equals(PaymentMode.CARD) ||
-                mode.equals(PaymentMode.UPI) ||
-                mode.equals(PaymentMode.CASH);
+        return mode.equals("CARD") ||
+                mode.equals("UPI") ||
+                mode.equals("CASH");
     }
 
     public Reservation getReservation(int reservationId){
