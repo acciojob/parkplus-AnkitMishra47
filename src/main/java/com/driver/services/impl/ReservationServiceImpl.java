@@ -53,7 +53,7 @@ public class ReservationServiceImpl implements ReservationService {
         User user = getUser(userId);
 
         if (spot == null || user == null){
-            throw new NullPointerException("Cannot make reservation");
+            return null;
         }
 
         Reservation reservation = new Reservation(timeInHours, user, spot);
